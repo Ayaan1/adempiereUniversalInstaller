@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<izpack:installation version="5.0"
+                     xmlns:izpack="http://izpack.org/schema/installation"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
+
+   <info>
+      <run-privileged/>
+      <appname>Adempiere</appname>
+      <appversion>380</appversion>
+      <url>http://adempiere.net</url>
+      <authors>
+         <author name="Adempiere Community" email="info@adempiere.net"/>
+      </authors>		
+   </info>
+
+   <guiprefs resizable="yes" width="800" height="600"/>
+
+   <locale>
+      <langpack iso3="spa"/>
+   </locale>
+
+   <dynamicvariables>
+      <variable name="JDKPathPanel.minVersion" value="1.8"/>
+      <variable name="JDKPathPanel.maxVersion" value="1.8"/>
+      <!--variable name="JDKPathPanel.skipIfValid" value="yes"/-->
+   </dynamicvariables>
+
+   <resources>
+      <res id="packsLang.xml" src="res/langpacks/eng.xml"/>
+      <res id="CustomLangpack.xml_eng" src="res/langpacks/eng.xml"/>
+      <res id="installer.langsel.img" src="res/img/AdempiereLogo128.png"/>
+      <res id="Heading.image" src="res/img/AdempiereLogo128.png"/>
+      <res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml"/>
+   </resources>
+
+   <panels>
+      <panel classname="HelloPanel"/>
+      <panel classname="TargetPanel"/>
+      <panel classname="JDKPathPanel"/>
+      <panel classname="PacksPanel"/>
+      <panel classname="SummaryPanel"/>
+      <panel classname="InstallPanel"/>
+      <panel classname="ProcessPanel"/>
+      <panel classname="SimpleFinishPanel"/>
+   </panels>
+
+   <packs>
+      <pack name="Adempiere 380 Basic Instalation" required="yes">
+         <description>Basic Instalation for Adempiere 380 Application Server</description>
+         <fileset dir="program/Adempiere" targetdir="${INSTALL_PATH}/" override="true">
+         </fileset>
+      </pack>
+      <pack name="Adempiere 380 After Install" required="yes" preselected="yes" hidden="true">
+         <description></description>
+         <file src="AdempiereAfterInstall.bat" targetdir="${INSTALL_PATH}/" override="true"/>
+      </pack>
+   </packs>
+
+</izpack:installation>
+
