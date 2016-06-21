@@ -11,7 +11,7 @@
       <url>http://adempiere.net</url>
       <authors>
          <author name="Adempiere Community" email="info@adempiere.net"/>
-      </authors>		
+      </authors>
    </info>
 
    <guiprefs resizable="yes" width="800" height="600"/>
@@ -24,7 +24,11 @@
       <variable name="JDKPathPanel.minVersion" value="1.8"/>
       <variable name="JDKPathPanel.maxVersion" value="1.8"/>
       <!--variable name="JDKPathPanel.skipIfValid" value="yes"/-->
+
+      <variable name="postgresql.defaultPath" value="${INSTALL_PATH}${FILE_SEPARATOR}9.4"/>
    </dynamicvariables>
+
+   <jar src="AdempiereSetupInstallationValidator.jar"/>
 
    <resources>
       <res id="packsLang.xml" src="res/langpacks/eng.xml"/>
@@ -32,6 +36,7 @@
       <res id="installer.langsel.img" src="res/img/AdempiereLogo128.png"/>
       <res id="Heading.image" src="res/img/AdempiereLogo128.png"/>
       <res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml"/>
+      <res id="userInputSpec.xml" src="userInputSpec.xml" />
    </resources>
 
    <panels>
@@ -39,6 +44,10 @@
       <panel classname="TargetPanel"/>
       <panel classname="JDKPathPanel"/>
       <panel classname="PacksPanel"/>
+      <panel classname="UserInputPanel" id="AdempiereSetupUserInputPanel">
+        <!-- Revisar validador de panel https://izpack.atlassian.net/wiki/display/IZPACK/Validating+a+MSSQL+database+connection -->
+        <!--validator classname="com.mysoft.izpack.validators.MssqlConnectionValidator"/-->
+      </panel>
       <panel classname="SummaryPanel"/>
       <panel classname="InstallPanel"/>
       <panel classname="ProcessPanel"/>
@@ -54,8 +63,11 @@
       <pack name="Adempiere 380 After Install" required="yes" preselected="yes" hidden="true">
          <description></description>
          <file src="AdempiereAfterInstall.bat" targetdir="${INSTALL_PATH}/" override="true"/>
+         <file src="AdempiereAfterInstall.sh" targetdir="${INSTALL_PATH}/" override="true"/>
+         <executable targetfile="${INSTALL_PATH}/AdempiereAfterInstall.sh" stage="never">
+            <os family="unix"/>
+        </executable>
       </pack>
    </packs>
 
 </izpack:installation>
-

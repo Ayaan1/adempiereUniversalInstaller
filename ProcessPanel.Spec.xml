@@ -12,10 +12,10 @@
   </job>
   <job name="Adempiere After Install">
     <os family="unix" />
-    <executefile name="./AdempiereAfterInstall.sh">
+    <executefile name="${INSTALL_PATH}/AdempiereAfterInstall.sh">
       <arg>$INSTALL_PATH</arg>
       <arg>$jdkPath</arg>
     </executefile>
   </job>
-  
+
 </izpack:processing>

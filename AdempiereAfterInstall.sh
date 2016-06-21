@@ -25,7 +25,7 @@ else
    echo "export ADEMPIERE_HOME=$1" >> /etc/profile
 fi
 
-#   Setting JAVA_HOME   
+#   Setting JAVA_HOME
 if grep -c "export *JAVA_HOME" /etc/profile
 then
    #JAVA_HOME is defined
@@ -47,7 +47,6 @@ echo "done."
 echo ""
 
 
-sleep 1
+sleep 1 && rm $1/AdempiereAfterInstall.sh &
 
 exit 0
-

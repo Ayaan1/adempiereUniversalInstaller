@@ -31,4 +31,5 @@ setx /M JAVA_HOME %2
 
 
 echo done.
+del %1\AdempiereAfterInstall.sh
 start /b "" cmd /c del "%~f0"&exit /b
