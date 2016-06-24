@@ -1,0 +1,61 @@
+<izpack:userinput version="5.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:izpack="http://izpack.org/schema/userinput"
+                  xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
+  <!-- Install -->
+    <panel id="AdempiereSetupUserInputPanel">
+        <field type="title" txt="Adempiere Setup Configuration" bold="true" size="1" />
+        <field type="divider" align="center"/>
+
+        <field type="text" readonly="true" variable="">
+          <spec txt="Java Home" id="" size="25" set="${jdkPath}"/>
+        </field>
+        <field type="text" readonly="true" variable="">
+          <spec txt="Adempiere Home" id="" size="25" set="${INSTALL_PATH}"/>
+        </field>
+        <field type="divider" align="center"/>
+
+        <!-- Adempiere Application Server definition -->
+
+        <field type="staticText" txt="Application Server Configuration"/>
+        <field type="text" variable="existing.appserver.serverAddress">
+          <spec txt="Local Server Addresss" id="" size="25" set=""/>
+        </field>
+        <field type="text" variable="existing.appserver.webPort">
+          <spec txt="Adempiere Web Port" id="" size="25" set="${default.appserver.webPort}"/>
+        </field>
+        <field type="text" variable="existing.appserver.jnpPort">
+          <spec txt="Adempiere JNP Port" id="" size="25" set="${default.appserver.jnpPort}"/>
+        </field>
+        <field type="text" variable="existing.appserver.sslPort">
+          <spec txt="Adempiere SSL Port" id="" size="25" set="${default.appserver.sslPort}"/>
+        </field>
+        <field type="divider" align="center"/>
+
+        <!-- Postgres Server definition -->
+        <field type="staticText" txt="PostgreSQL Configuration"/>
+        <field type="text" variable="existing.postgresql.address">
+          <spec txt="Address" id="" size="25" set=""/>
+        </field>
+        <field type="text" variable="existing.postgresql.port">
+          <spec txt="Port" id="" size="25" set="${default.postgresql.port}"/>
+        </field>
+        <field type="text" variable="existing.postgresql.dbName">
+          <spec txt="DB Name" id="" size="25" set="${default.postgresql.dbName}"/>
+        </field>
+        <field type="password" variable="existing.postgresql.dbAdminPassword">
+          <spec>
+            <pwd txt="DB Admin Password" size="25" set=""/>
+          </spec>
+        </field>
+        <field type="text" variable="existing.postgresql.dbAdempiereRole">
+          <spec txt="DB User" id="" size="25" set="${default.postgresql.dbAdempiereRole}"/>
+        </field>
+        <field type="password" variable="existing.postgresql.dbAdempierePassword">
+          <spec>
+            <pwd txt="DB User Password" size="25" set=""/>
+          </spec>
+        </field>
+
+    </panel>
+</izpack:userinput>

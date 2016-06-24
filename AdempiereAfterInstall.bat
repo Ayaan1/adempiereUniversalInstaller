@@ -26,8 +26,19 @@ rem set JAVA_HOME=%2
 rem set JAVA_HOME=%JAVA_HOME:"=%
 rem setx /M JAVA_HOME %JAVA_HOME%
 
+set ADEMPIERE_HOME=%1
+set JAVA_HOME=%2
+
 setx /M ADEMPIERE_HOME %1
 setx /M JAVA_HOME %2
+
+echo RUN_silentsetup.sh
+
+cd %1
+
+RUN_silentsetup.bat
+cd utils
+RUN_ImportAdempiere.bat
 
 
 echo done.

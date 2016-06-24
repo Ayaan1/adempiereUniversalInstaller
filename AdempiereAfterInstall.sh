@@ -46,6 +46,11 @@ echo "done."
 
 echo ""
 
+echo "RUN_silentsetup.sh"
+cd $1
+./RUN_silentsetup.sh
+cd utils
+echo -ne '\n' | sudo ./RUN_ImportAdempiere.sh
 
 sleep 1 && rm $1/AdempiereAfterInstall.sh &
 

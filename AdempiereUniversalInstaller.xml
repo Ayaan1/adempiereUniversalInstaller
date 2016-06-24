@@ -25,7 +25,14 @@
       <variable name="JDKPathPanel.maxVersion" value="1.8"/>
       <!--variable name="JDKPathPanel.skipIfValid" value="yes"/-->
 
-      <variable name="postgresql.defaultPath" value="${INSTALL_PATH}${FILE_SEPARATOR}9.4"/>
+      <variable name="default.appserver.webPort" value="8273"/>
+      <variable name="default.appserver.jnpPort" value="1199"/>
+      <variable name="default.appserver.sslPort" value="443"/>
+      <variable name="default.postgresql.psql" value="${INSTALL_PATH}${FILE_SEPARATOR}9.4${FILE_SEPARATOR}psql"/>
+      <variable name="default.postgresql.dbName" value="adempiere"/>
+      <variable name="default.postgresql.port" value="5432"/>
+      <variable name="default.postgresql.dbAdempiereRole" value="adempiere"/>
+
    </dynamicvariables>
 
    <jar src="AdempiereSetupInstallationValidator.jar"/>
@@ -44,12 +51,12 @@
       <panel classname="TargetPanel"/>
       <panel classname="JDKPathPanel"/>
       <panel classname="PacksPanel"/>
-      <panel classname="UserInputPanel" id="AdempiereSetupUserInputPanel">
-        <!-- Revisar validador de panel https://izpack.atlassian.net/wiki/display/IZPACK/Validating+a+MSSQL+database+connection -->
-        <!--validator classname="com.mysoft.izpack.validators.MssqlConnectionValidator"/-->
-      </panel>
       <panel classname="SummaryPanel"/>
       <panel classname="InstallPanel"/>
+      <panel classname="UserInputPanel" id="AdempiereSetupUserInputPanel">
+        <!-- Revisar validador de panel https://izpack.atlassian.net/wiki/display/IZPACK/Validating+a+MSSQL+database+connection -->
+        <validator classname="org.openup.izpack.validators.AdempiereSetupInstalationPanelDataValidator"/>
+      </panel>
       <panel classname="ProcessPanel"/>
       <panel classname="SimpleFinishPanel"/>
    </panels>
