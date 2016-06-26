@@ -15,6 +15,10 @@ Run:
 /usr/local/IzPack/bin/compile izpack_installer_definition.xml -o adempiere_installer.jar
 
 
+## Note
+
+This installer uses a Java class to perform validations in Adempiere settings window, which is incorporated in the project as a single file.
+
 _______________________________________
 
 
@@ -34,4 +38,6 @@ Dejar los archivos para instalación de Adempiere en el directorio "program/Adem
 Ejecutar:
 /usr/local/IzPack/bin/compile definicion_instalador_izpack.xml -o instalador_adempiere.jar
 
+## Nota
 
+Este instalador utiliza una clase Java para realizar las validaciones en la ventana de configuracion de Adempiere, la cual se incorpora en dicho proyecto como archivo unico.
