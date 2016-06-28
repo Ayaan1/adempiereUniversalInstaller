@@ -8,29 +8,22 @@ rem @param %2 Current Java to set envirnment
 
 echo Setting environment variables ...
 
-echo Prueba Variables
-echo ADEMPIERE_HOME %1
-echo JAVA_HOME %2
-
-
 echo Setting ADEMPIERE_HOME
 
-rem set ADEMPIERE_HOME=%1
-rem set ADEMPIERE_HOME=%ADEMPIERE_HOME:"=%
-rem setx /M ADEMPIERE_HOME %ADEMPIERE_HOME%
-
+SET ADEMPIERE_HOME=%~1
+SET ADEMPIERE_HOME="\"%ADEMPIERE_HOME%\""
+rem SET ADEMPIERE_HOME=%ADEMPIERE_HOME:\=\\%
+setx /M ADEMPIERE_HOME %ADEMPIERE_HOME%
+echo OpenUp adempiere_home %ADEMPIERE_HOME%
 
 echo Setting JAVA_HOME
 
-rem set JAVA_HOME=%2
-rem set JAVA_HOME=%JAVA_HOME:"=%
-rem setx /M JAVA_HOME %JAVA_HOME%
+SET JAVA_HOME=%~2
+SET JAVA_HOME=%JAVA_HOME:\=\\%
+setx /M JAVA_HOME "%JAVA_HOME%"
+echo OpenUp java_home "%JAVA_HOME%"
 
-set ADEMPIERE_HOME=%1
-set JAVA_HOME=%2
 
-setx /M ADEMPIERE_HOME %1
-setx /M JAVA_HOME %2
 
 echo RUN_silentsetup.sh
 
